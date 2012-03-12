@@ -30,7 +30,6 @@ module DotPlan
         end
 
         plan = JSON.parse(response)
-        puts plan
 
         File.open(DotPlan::TEMP_PATH, "w") do |f|
           f.write(plan["text"])

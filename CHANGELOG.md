@@ -1,3 +1,7 @@
+### 0.0.5
+
+* removed debug statements
+
 ### 0.0.4
 
 * url escape text and fixed date.today bug
