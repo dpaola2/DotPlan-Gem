@@ -18,7 +18,7 @@ if ARGV.first && commands.keys.include?(ARGV.first.downcase)
   end
 else
   begin
-    puts "todo".green
+    DotPlan::Command::Default.run()
   rescue => e
     puts e
   end
