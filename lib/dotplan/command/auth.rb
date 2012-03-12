@@ -31,9 +31,12 @@ module DotPlan
       def self.authenticate(options)
         raise "Must provide a username".red unless options[:username]
         raise "Must provide a password".red  unless options[:password]
-
-        response = RestClient.get("#{DotPlan::DOTPLAN_URL}/user/#{options[:username]}/auth", :Password => options[:password])
-
+        begin
+          response = RestClient.get("#{DotPlan::DOTPLAN_URL}/user/#{options[:username]}/auth", :Password => options[:password])
+        rescue => e
+          response = JSON.parse(e.response)
+          raise response["error"].red
+        end
         credentials = JSON.parse(response.body)
         credentials
       end
