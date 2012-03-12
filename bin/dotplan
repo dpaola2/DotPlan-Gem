@@ -10,7 +10,7 @@ commands = {
   'help'        => proc { DotPlan::Command::Help.run },
 }
 
-if commands.keys.include?(ARGV.first.downcase)
+if ARGV.first && commands.keys.include?(ARGV.first.downcase)
   begin
     commands[ARGV.first.downcase].call
   rescue => e
@@ -18,7 +18,7 @@ if commands.keys.include?(ARGV.first.downcase)
   end
 else
   begin
-
+    puts "todo".green
   rescue => e
     puts e
   end

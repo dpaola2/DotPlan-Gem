@@ -1,6 +1,7 @@
 require "colorize"
+require "rest-client"
 
-module Bloc
+module DotPlan
   module Command
     class Auth
       def self.run(*args)
@@ -9,7 +10,7 @@ module Bloc
 
       def self.login
         print "Username: "
-        email = $stdin.gets.chomp
+        username = $stdin.gets.chomp
 
         print "Password: "
         system "stty -echo"
@@ -19,7 +20,7 @@ module Bloc
         print "\n"
 
         begin
-          credentials = authenticate(:email => email, :password => password)
+          credentials = authenticate(:username => username, :password => password)
           write_credentials(credentials)
           puts "Saved to #{DotPlan::CREDENTIALS_PATH}.".green
         rescue => e
