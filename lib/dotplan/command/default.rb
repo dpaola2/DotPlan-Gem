@@ -1,3 +1,6 @@
+require 'date'
+require 'uri'
+
 module DotPlan
   module Command
     class Default
@@ -36,7 +39,7 @@ module DotPlan
         result = system("$EDITOR #{DotPlan::TEMP_PATH}")
 
         if result
-          new_text = File.read DotPlan::TEMP_PATH
+          new_text = URI.escape(File.read DotPlan::TEMP_PATH)
           begin
             resource = RestClient::Resource.new("#{url}?text=#{new_text}", :Password => password)
             response = resource.put nil, :Password => password
