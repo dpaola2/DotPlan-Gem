@@ -6,7 +6,7 @@ require "dotplan"
 commands = {
   # user commands
   'auth'        => proc { DotPlan::Command::Auth.run },
-  'register'    => proc { DotPlan::Command::New.run },
+  'register'    => proc { DotPlan::Command::Register.run },
   'help'        => proc { DotPlan::Command::Help.run },
 }
 
@@ -22,17 +22,4 @@ else
   rescue => e
     puts e
   end
-end
-
-def print_helpstring
-  helpstring = <<-eos
-    Usage: 
-      dotplan <command> [options]
-    
-    User Commands:
-      authenticate                      Authenticate by entering your Bloc email and password
-      tasks                             Run the tasks for your current chapter
-
-eos
-  puts helpstring
 end
