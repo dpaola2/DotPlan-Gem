@@ -1,3 +1,7 @@
+### 0.0.3
+
+* working put/get plans
+
 ### 0.0.2
 
 * minor tweaks in auth

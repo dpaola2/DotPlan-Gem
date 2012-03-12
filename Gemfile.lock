@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dotplan (0.0.1)
+    dotplan (0.0.2)
       colorize
       hashie
       json
