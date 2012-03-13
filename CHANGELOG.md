@@ -1,3 +1,7 @@
+### 0.0.6
+
+* added dotplan log command
+
 ### 0.0.5
 
 * removed debug statements

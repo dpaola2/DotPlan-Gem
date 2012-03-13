@@ -8,6 +8,7 @@ commands = {
   'auth'        => proc { DotPlan::Command::Auth.run },
   'register'    => proc { DotPlan::Command::Register.run },
   'help'        => proc { DotPlan::Command::Help.run },
+  'log'         => proc { DotPlan::Command::Log.run },
 }
 
 if ARGV.first && commands.keys.include?(ARGV.first.downcase)
