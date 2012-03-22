@@ -1,3 +1,7 @@
+### 0.0.7
+
+* fixed bug where log command was returning HTML instead of JSON
+
 ### 0.0.6
 
 * added dotplan log command

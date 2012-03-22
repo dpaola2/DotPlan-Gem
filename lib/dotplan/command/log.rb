@@ -13,15 +13,19 @@ module DotPlan
         url = "#{DotPlan::DOTPLAN_URL}/user/#{username}/plans"
         resource = RestClient::Resource.new(url)
         begin
-          response = resource.get
+          response = resource.get(:accept => "application/json")
         rescue => e
           response = JSON.parse(e.response)
           raise response["error"].red
         end
-        plans = JSON.parse(response)
-        plans.each do |plan|
-          puts plan["date"].red
-          puts plan["text"].green
+        begin
+          plans = JSON.parse(response)
+          plans.each do |plan|
+            puts plan["date"].red
+            puts plan["text"].green
+          end
+        rescue => e
+          puts e.message.red
         end
       end
     end
